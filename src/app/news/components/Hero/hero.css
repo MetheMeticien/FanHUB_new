@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Sansation';
+    src: url('https://fonts.cdnfonts.com/s/17824/Sansation_Regular.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Sansation', sans-serif;
+}
+
+.hero{
+    min-width: 600px;
+    max-width: 900px;
+    flex-shrink: 1;
+}
+
+.hero .container {
+    display: flex;
+    
+    border-width: 2px;
+    border-color: #202020;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.hero img {
+    height: 300px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hero .text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.hero .news{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hero .heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.hero h3 {
+    font-size: 12px;
+    color: #BCBCBC;
+    opacity: .6;
+    font-weight: lighter;
+
+}
+
+.hero h4 {
+    font-size: 12px;
+    color: #BCBCBC;
+    opacity: .6;
+    font-weight: lighter;
+}
+
+.hero h1 {
+    font-size: 25px;
+    color: #BCBCBC;
+}
+
+.hero .description h4 {
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 10;
+    max-height: calc(1.2em * 10);
+    line-height: 1.2em;
+
+
+}
+
+.hero button{
+    background-color: #8A8A8A;
+    padding: 4px;
+    color: black;
+    opacity: .6;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+}

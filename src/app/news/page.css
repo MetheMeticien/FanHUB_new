@@ -1,0 +1,44 @@
+.news{
+    display:flex;
+    height: 100%;
+}
+
+.news .left-bar{
+    background-color: #545353;
+    display: block;
+    min-width: 300px;
+    
+}
+
+.news .main-section{
+    display: flex;
+    background-color: #313131;
+    padding: 30px;
+    flex-wrap: wrap; 
+    flex-grow: 1;
+    /* overflow: auto; */
+}
+
+.news .following{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.news .following .others{
+    margin:15px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 900px;
+}
+
+
+.news .scroller{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* width: 550px; */
+
+}
+

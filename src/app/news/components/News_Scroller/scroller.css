@@ -1,0 +1,49 @@
+/* Parent container */
+*{
+    box-sizing: border-box;
+}
+
+.news_auto_scroller {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh; /* Adjust for 4 visible items, depending on item height */
+    overflow: hidden;
+    padding: 50px;
+    
+    /* Apply a fade effect to top and bottom */
+    mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  }
+  
+  /* Scrolling content */
+  .news_auto_scroller .scroller_content {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 10s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-20%); /* Adjust based on total content height */
+    }
+  }
+  
+  /* Styling individual items */
+  .news_auto_scroller .scroller_content > * {
+    height: 160px; /* Adjust for a total of 4 visible items */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; 
+  }
+  
+  /* Optional: Pause animation on hover */
+  .scroller_content:hover {
+    animation-play-state: paused;
+  }
+  
+  .news_auto_scroller .scroller_content > *:hover {
+    transform: scale(1.1); /* Increase size by 10% when hovered */
+  }
