@@ -1,5 +1,9 @@
+"use client"
+
+
 import "./social.css"
 import Navbar from "@/Navbar/navbar";
+import PostPage from "../social/PostPage/PostPage";
 
 export default function Social(){
     return(
@@ -10,17 +14,7 @@ export default function Social(){
 
                 </div>
                 <div className="main-section">
-                    <div className="create-post">
-                        <div className="header">
-                            <h1>Create Post</h1>
-                        </div>
-                        <div className="text-section">
-                            <input type="text" placeholder="Want to share something? Here you go."/>
-                        </div>
-                        <div className="footer">
-                            <button>Post</button>
-                        </div>
-                    </div>
+                    <PostPage/>
                 </div>
                 <div className="right-bar">
                     
