@@ -8,7 +8,7 @@ export default function Navbar(){
             </div>
             <div className="search">
                 <img src="assets/magnifying-glass.png" alt="" />
-                <input type="text" placeholder="Search you fav celebs"/>
+                <input type="text" placeholder="Search Celebrities or Posts"/>
             </div>
             <div className="profile">
                 <img src="assets/profile_pic.jpg" alt="dp" />

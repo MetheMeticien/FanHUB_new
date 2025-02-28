@@ -1,0 +1,34 @@
+.celebrity-filter {
+    padding: 15px;
+}
+
+.celebrity-filter h3 {
+    margin-bottom: 10px; /* Adds spacing between heading and list */
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.celebrity-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.celebrity-list li {
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+    color: #BCBCBC;
+}
+
+.celebrity-list li:hover {
+    background: rgba(183, 22, 49, 0.7); /* Light red hover */
+    color: white;
+}
+
+.celebrity-list .active {
+    background: #b71631;
+    color: white;
+    font-weight: bold;
+}

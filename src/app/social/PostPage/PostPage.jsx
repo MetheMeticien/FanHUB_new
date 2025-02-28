@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import './PostPage.css';
 import PostCard from './PostCard';
 import { FaClock, FaStar, FaPlus } from 'react-icons/fa';
-import Dock from '../Dock/Dock';
+import Dock from '../../Dock/dock';
 import CreatePost from './CreatePost';  // Import CreatePost component
+import CelebrityFilter from '../components/CelebrityFilter/CelebrityFilter';  // Import the CelebrityFilter component
 
 const initialPosts = [
     { 
@@ -132,7 +133,7 @@ const PostPage = () => {
         });
         setPosts(updatedPosts);
     };
-    
+
     // Filter posts by selected celebrityId
     const filteredPosts = selectedCelebrityId
         ? posts.filter(post => post.celebrityId === selectedCelebrityId)
@@ -151,28 +152,15 @@ const PostPage = () => {
         <div className="post-page-container">
             {/* Left Pane: Celebrities List with "All" option */}
             <div className="left-pane">
-                <h3>Celebrity I Follow</h3>
-                <ul className="celebrity-list">
-                    <li 
-                        onClick={() => handleCelebritySelect('all')}
-                        style={{ fontWeight: selectedCelebrityId === '' ? 'bold' : 'normal' }}
-                    >
-                        All
-                    </li>
-                    {followedCelebrities.map((celebrity) => (
-                        <li 
-                            key={celebrity.id} 
-                            onClick={() => handleCelebritySelect(celebrity.id)}
-                            style={{ fontWeight: selectedCelebrityId === celebrity.id ? 'bold' : 'normal' }}
-                        >
-                            {celebrity.name}
-                        </li>
-                    ))}
-                </ul>
+                <CelebrityFilter 
+                    followedCelebrities={followedCelebrities}
+                    selectedCelebrityId={selectedCelebrityId}
+                    handleCelebritySelect={handleCelebritySelect}
+                />
             </div>
 
             {/* Middle Pane: Post Section */}
-            <div className="middle-pane">
+            
                 <div className="post-section">
                     {filteredPosts.map((post, index) => (
                         <PostCard
@@ -195,7 +183,7 @@ const PostPage = () => {
                         />
                     ))}
                 </div>
-            </div>
+            
 
             {/* Right Pane: Sort By Options */}
             <div className="right-pane">
@@ -232,8 +220,6 @@ const PostPage = () => {
 
             {/* Floating Dock with buttons */}
             <Dock />
-            <br />
-            <br />
         </div>
     );
 };

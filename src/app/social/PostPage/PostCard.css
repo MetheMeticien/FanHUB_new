@@ -1,135 +1,125 @@
 .post-card {
-    position: static;
-    border: 1px solid #ddd;
+    min-width: 900px;
+    min-height: 150px;
+    flex-shrink: 1;
+    border-width: 2px;
+    border-color: #202020;
+    border-style: solid;
     border-radius: 10px;
-    padding: 25px;  /* Slightly larger padding for comfort */
-    margin: 12px 0;  /* Slightly larger margin for spacing */
-    background-color: #fff;
-    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    max-width: 1500px;  /* A comfortable max-width */
-    min-width: 400px;
-}
-
-.post-media-wrapper {
-    width: 100%;
-    margin-top: 12px;
-    display: flex;
-    justify-content: center; /* Center the media */
-}
-
-.post-media {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-.post-media-wrapper video {
-    width: 100%;  /* Adjust video to fit the container */
-    max-width: 600px;
+    padding: 20px;
+    background-color: #313131;
+    gap: 15px;
 }
 
 .post-card-header {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;  /* A bit more breathing room */
+    gap: 12px;
 }
 
-.profile-pic {
-    width: 40px;  /* Slightly larger profile picture */
-    height: 40px;
+.post-card .profile-pic {
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
-    margin-right: 8px;
+    object-fit: cover;
 }
 
-.post-info {
+.post-card .post-user-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 2px;
 }
 
-.post-user-name {
+.post-card .post-user-name {
+    font-size: 18px;
     font-weight: bold;
-    font-size: 0.95rem;  /* Slightly larger font size */
+    color: #BCBCBC;
 }
 
-.post-timestamp {
-    font-size: 0.75rem;  /* Slightly larger font size */
-    color: #888;
+.post-card .post-timestamp {
+    font-size: 12px;
+    color: #BCBCBC;
+    opacity: 0.6;
 }
 
 .post-card-body {
     display: flex;
-    flex-direction: column;  /* Change to column for text + image stacking */
-    justify-content: flex-start;
-    margin-top: 8px;  /* Added spacing */
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+    color: #BCBCBC;
 }
 
-.post-description {
-    margin-right: 14px;  /* Slightly larger margin-right */
+.post-card .post-content {
+    font-size: 16px;
+    color: #BCBCBC;
+    font-size: 13px;
 }
 
-/* Conditionally render the image wrapper only if imageSrc exists */
-.post-image-wrapper {
-    width: 100%;  /* Full width of the card */
-    overflow: hidden;
-    margin-top: 12px;  /* Spacing between text and image */
-    display: none;  /* Hide by default */
+.post-card .post-media-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
 }
 
-/* Only show image if imageSrc exists */
-.post-image-wrapper img {
+.post-card img,
+.post-card video {
     width: 100%;
-    height: auto;  /* Flexible height based on width */
-    border-radius: 8px;
-}
-
-/* Ensure the image or video only displays when it exists and loads */
-.post-card-body img,
-.post-card-body video {
-    display: block;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .post-actions {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
-}
-
-.like-button, .comment-button, .delete-button {
-    border: none;
-    background: none;
-    color: #555;
-    cursor: pointer;
-    display: flex;
     align-items: center;
-    margin-top: 10px;
-    font-size: 0.85rem;  /* Slightly larger font size */
+    padding-top: 10px;
 }
 
-.like-button.liked {
-    color: #007bff;
-}
-
-.button-text {
-    margin-left: 5px;  /* Adjust spacing as needed */
+.post-actions button {
+    background-color: #202020;
+    padding: 12px 12px;
+    color: rgb(255, 255, 255);
+    opacity: 0.8;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .expanded-comments {
-    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 0;
 }
 
 .comment-list {
     list-style-type: none;
     padding: 0;
-    margin: 8px 0;  /* Slightly larger margin */
-    font-size: .85rem;
+    margin: 0;
+    font-size: 14px;
+    color: #BCBCBC;
+}
+
+.comment-item {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #2A2A2A;
 }
 
 .comment-input {
     width: 100%;
     padding: 10px;
-    margin-top: 8px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    font-size: 0.85rem;  /* Slightly larger font size */
+    border-radius: 10px;
+    border: 1px solid #444;
+    font-size: 14px;
+    background-color: #222;
+    color: #BCBCBC;
+    outline: none;
 }

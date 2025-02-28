@@ -1,110 +1,106 @@
-/* Three-pane layout */
+/* Three-pane layout for PostPage */
 .post-page-container {
-    display: grid;
-    grid-template-columns: 260px 1fr 260px; /* Left, middle, right */
-    grid-gap: 20px;
-    padding: 20px;
+    display:flex;
+    width: 100%;
+    align-content: center;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #313131;
 }
 
 /* Left Pane: Celebrities List */
-.left-pane, .right-pane {
-    position: sticky;
-    top: 20px;
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-radius: 10px;
-    width: 210px;
-    max-height: fit-content;
-    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1); /* Consistent shadow for both panes */
+.left-pane {
+    background-color: #545353;
+    display: block;
+    width: 300px;
+    position:sticky;
+    min-height: 919px;
+    color: #ffffff;
+    padding: 50px;
 }
 
-/* Shared styling for list items in both left and right panes */
-.left-pane ul, .right-pane ul {
-    list-style-type: none;
-    padding: 20px;
-}
 
-.left-pane ul li, .right-pane ul li {
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.left-pane ul li:hover, .right-pane ul li:hover {
-    background-color: #e0e0e0;
-    color: #b71631;
-}
-
-.left-pane ul li.active, .right-pane ul li.active {
-    font-weight: bold;
-    color: #b71631;
-}
 
 /* Middle Pane: Post Section */
 .middle-pane {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the post cards horizontally */
+    background-color: #313131;
+    padding: 50px;
+    align-content: center;
 }
 
+/* Post section styling */
 .post-section {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 100%; /* Ensures cards take the full width of the container */
-    max-width: 600px; /* Limits the width of the post cards */
-}
-
-/* Right Pane: Sort By Section (styled to match Left Pane) */
-.right-pane {
     display: flex;
     flex-direction: column;
-
+    gap: 20px;
+    padding: 30px;
+    
 }
 
+/* Right Pane: Sort By Options */
+.right-pane {
+    background-color: #313131;
+    padding: 30px;
+    border-radius: 10px;
+    position: sticky;
+    top: 10px;
+    max-width: 200px;
+}
+
+/* Sort By title - matching "Celebrity I Follow" */
 .sort-by-title {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #BCBCBC;
     font-weight: bold;
-    color: #333; /* Matches left pane header color */
-    margin-bottom: 10px;
 }
 
-/* Filter buttons styling */
+/* Filter buttons container */
 .filter-buttons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
+    gap: 10px; /* Adds spacing between filter buttons */
 }
 
 /* Filter button styling */
 .filter-btn {
-    color: #b71631; /* Text color matches left pane hover color */
-    background-color: #ffffff;
+    color: #BCBCBC;
+    background-color: transparent;
     font-size: 15px;
-    border: 1px solid #b71631;
+    border: 1px solid transparent;
     padding: 10px;
     cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s, transform 0.2s ease-in-out;
     text-align: center;
-    width: 100%; /* Makes buttons full-width within the pane */
+    width: 100%;
 }
 
+/* Hover effect */
+.filter-btn:hover {
+    background-color: #444;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Active (Selected) state */
 .filter-btn.selected,
 .filter-btn.active {
     background-color: #b71631;
-    color: #ffffff; /* Keeps text color red when selected */
-    font-weight: bold; /* Makes the selected button bold */
-}
-.filter-btn.selected:hover {
-    background-color: #9e1228;
-    color: #f7f7f7;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid #b71631;
 }
 
-.filter-btn:hover {
-    background-color: #f7f7f7;
-    color: #b71631;
+/* Selected Hover effect */
+.filter-btn.selected:hover {
+    background-color: #9e1228;
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Floating Create Post Button */
 .create-post-float-btn {
@@ -123,7 +119,7 @@
     cursor: pointer;
     box-shadow: 6px 10px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
-    z-index: 10; /* Ensures button stays on top of other elements */
+    z-index: 10;
 }
 
 .create-post-float-btn:hover {
@@ -132,12 +128,12 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Dock (fade out effect on click) */
+/* Dock (fade-out effect on click) */
 .dock {
     transition: opacity 0.3s ease;
 }
 
 .dock.fade-out {
     opacity: 0;
-    pointer-events: none; /* Disable interaction when fading out */
+    pointer-events: none;
 }

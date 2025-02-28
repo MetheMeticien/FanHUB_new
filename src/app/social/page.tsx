@@ -10,14 +10,8 @@ export default function Social(){
         <div>
             <Navbar/>
             <div className="social">
-                <div className="left-bar">
-
-                </div>
                 <div className="main-section">
                     <PostPage/>
-                </div>
-                <div className="right-bar">
-                    
                 </div>
             </div>
         </div>
