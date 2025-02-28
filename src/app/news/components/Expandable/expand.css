@@ -1,0 +1,102 @@
+@font-face {
+    font-family: 'Sansation';
+    src: url('https://fonts.cdnfonts.com/s/17824/Sansation_Regular.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Sansation', sans-serif;
+}
+
+/* .expand{
+    margin:100px;
+} */
+
+.expand .container {
+    width: 100%; 
+    background-color: #313131;
+    max-width: 800px;
+    height: 700px;
+    margin: 0 auto;
+    
+    flex-direction: column;
+    border-width: 2px;
+    border-color: #202020;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.expand img {
+    width: 100%;
+       /* Full width of the parent */
+    height: 400px;       /* Set the desired height */
+    object-fit: cover;   /* Ensures the image covers the area while maintaining aspect ratio */
+    border-radius: 10px;
+    object-position: top;
+}
+
+
+
+.expand .text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px 20px;
+    gap: 15px;
+}
+
+.expand .news{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.expand .heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.expand .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.expand h3 {
+    font-size: 15px;
+    color: #BCBCBC;
+    opacity: .6;
+    font-weight: lighter;
+
+}
+
+.expand h4 {
+    font-size: 15px;
+    color: #BCBCBC;
+    opacity: .6;
+    font-weight: lighter;
+}
+
+.expand h1 {
+    font-size: 25px;
+    color: #BCBCBC;
+}
+
+.expand .description h4 {
+    max-height: 130px;       /* Set the max height to contain the text */
+    overflow-y: auto;        /* Show vertical scrollbar if text overflows */
+    line-height: 1.2em;
+    padding-right: 10px;     /* Add padding to avoid overlap with scrollbar */
+    box-sizing: border-box;  /* Ensure padding is included in the element's width */
+}
+
+.expand button{
+    background-color: #8A8A8A;
+    padding: 4px;
+    color: black;
+    opacity: .6;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+}

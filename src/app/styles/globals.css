@@ -1,0 +1,20 @@
+/* Tailwind's base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles can go here */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Example: you can specify the global font */
+  margin: 0;
+  padding: 0;
+}
+
+/* Example: Global background color */
+body {
+  background-color: #f7f7f7; /* Light background for the app */
+}
