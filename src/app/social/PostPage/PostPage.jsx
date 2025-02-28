@@ -10,7 +10,7 @@ const initialPosts = [
     { 
         postId: 'post1', 
         fanName: 'Ruhan', 
-        fanPhoto: 'https://via.placeholder.com/50', 
+        fanPhoto: 'https://cdn.wikimg.net/en/zeldawiki/images/c/ca/TLoZ_Link_Blocking_Artwork_2.png', 
         content: 'Excited about the new rocket launch!', 
         celebrityId: 'elon', 
         timestamp: new Date(),
@@ -23,7 +23,7 @@ const initialPosts = [
     { 
         postId: 'post2', 
         fanName: 'Ali', 
-        fanPhoto: 'https://via.placeholder.com/50', 
+        fanPhoto: 'https://as2.ftcdn.net/v2/jpg/00/97/00/09/1000_F_97000908_wwH2goIihwrMoeV9QF3BW6HtpsVFaNVM.jpg', 
         content: 'Beyoncé is amazing! Can’t wait for the concert!', 
         celebrityId: 'beyonce', 
         timestamp: new Date(),

@@ -3,6 +3,7 @@
     display:flex;
     width: 100%;
     align-content: center;
+    gap: 300px;
 }
 
 body {
@@ -15,19 +16,26 @@ body {
     background-color: #545353;
     display: block;
     width: 300px;
+    min-width: 300px;
     position:sticky;
     min-height: 919px;
     color: #ffffff;
     padding: 50px;
+    
+    
 }
 
 
 
 /* Middle Pane: Post Section */
 .middle-pane {
+    flex-grow: 1;  /* Allows this section to expand */
     background-color: #313131;
     padding: 50px;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers posts */
+    overflow-y: auto;
 }
 
 /* Post section styling */
@@ -36,7 +44,8 @@ body {
     flex-direction: column;
     gap: 20px;
     padding: 30px;
-    
+    width: 100%;
+    max-width: 1200px; /* Prevents posts from stretching too wide */
 }
 
 /* Right Pane: Sort By Options */
