@@ -8,7 +8,6 @@ import PostPage from "../social/PostPage/PostPage";
 export default function Social(){
     return(
         <div>
-            <Navbar/>
             <div className="social">
                 <div className="main-section">
                     <PostPage/>

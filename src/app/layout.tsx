@@ -1,5 +1,7 @@
+import Navbar from '@/Navbar/navbar';
 import './styles/globals.css'; 
 import "@/app/news/components/Modal/modal.css";
+import Dock from './Dock/dock';
 
 export const metadata = {
   title: 'Next.js',
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Navbar/>
+        {children}
+        <Dock />
+      </body>
     </html>
   )
 }

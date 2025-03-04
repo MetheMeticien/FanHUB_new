@@ -42,7 +42,6 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
       <div className="news">
         <div className="left-bar">
           {/* Using the CelebrityFilter component here */}
@@ -69,7 +68,7 @@ export default function Home() {
       </div>
 
       {/* Floating Dock with buttons */}
-      <Dock />
+      
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {isModalOpen && (
           <>

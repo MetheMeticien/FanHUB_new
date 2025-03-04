@@ -219,7 +219,7 @@ const PostPage = () => {
             )}
 
             {/* Floating Dock with buttons */}
-            <Dock />
+            
         </div>
     );
 };
