@@ -1,7 +1,7 @@
 import Navbar from '@/Navbar/navbar';
 import './styles/globals.css'; 
 import "@/app/news/components/Modal/modal.css";
-import Dock from './Dock/dock';
+import Dock from "./Dock/Dock"
 
 export const metadata = {
   title: 'Next.js',
