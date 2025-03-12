@@ -5,8 +5,8 @@ import Navbar from "@/Navbar/navbar";
 import Hero from "./components/Hero/hero";
 import Other_News from "./components/Other_news/other_news";
 import News_Scroller from "./components/News_Scroller/scroller";
-import CelebrityFilter from "./components/CelebrityFilter/celebrityFilter";  // Importing the CelebrityFilter component
-import Dock from "../Dock/dock";
+import CelebrityFilter from "../social/components/CelebrityFilter/CelebrityFilter";
+import Dock from "../Dock/Dock";
 import "./page.css";
 import Modal from "./components/Modal/Modal";
 import Expand from "./components/Expandable/expand";
