@@ -2,6 +2,7 @@ import Navbar from '@/Navbar/navbar';
 import './globals.css';
 import { Lato } from "next/font/google";
 import "@/app/news/components/Modal/modal.css";
+<<<<<<< HEAD
 import Dock from './Dock/dock';
 import Left_bar from '@/Left_Bar/left_bar';
 import Right_bar from './Right_Bar/right_bar';
@@ -9,6 +10,9 @@ import Right_bar from './Right_Bar/right_bar';
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
+=======
+import Dock from "./Dock/Dock"
+>>>>>>> 3ab626b5520ddc0605725e5a28b8d614ff19fe8f
 
 export const metadata = {
   title: 'Next.js',

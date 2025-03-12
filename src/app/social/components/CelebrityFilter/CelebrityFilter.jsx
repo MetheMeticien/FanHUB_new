@@ -1,5 +1,5 @@
 import React from "react";
-import "./celebrityFilter.css";
+import "./CelebrityFilter.css";
 
 const CelebrityFilter = ({ followedCelebrities, selectedCelebrityId, handleCelebritySelect }) => {
     return (

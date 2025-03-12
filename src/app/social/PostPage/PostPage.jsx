@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './PostPage.css';
 import PostCard from './PostCard';
 import { FaClock, FaStar, FaPlus } from 'react-icons/fa';
-import Dock from '../../Dock/dock';
+import Dock from '@/app/Dock/Dock';
 import CreatePost from './CreatePost';  // Import CreatePost component
 import CelebrityFilter from '../components/CelebrityFilter/CelebrityFilter';  // Import the CelebrityFilter component
 
