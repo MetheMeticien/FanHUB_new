@@ -3,7 +3,6 @@
 import Navbar from '@/Navbar/navbar';
 import './globals.css';
 import { Lato } from "next/font/google";
-import "@/app/news/components/Modal/modal.css";
 import Dock from './Dock/Dock';
 import { useEffect } from 'react';
 import Left_bar from './Left_Bar/left_bar';
@@ -19,16 +18,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  useEffect(() => {
-    document.documentElement.classList.add("dark"); // Force dark mode
-  }, []);
-  
   return (
-    <html lang="en">
-      <body>
-        <Navbar/>
+    <html lang="en" className={lato.className}>
+      <body className='bg-background'>
         {children}
-        <Dock />
       </body>
     </html>
   )
