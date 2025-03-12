@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaThumbsUp, FaCommentAlt, FaTrash } from 'react-icons/fa';
+import { FaThumbsUp, FaCommentAlt, FaTrash, FaEllipsisV, FaLink } from 'react-icons/fa';
 import './PostCard.css';
 
 const PostCard = ({
@@ -14,12 +14,14 @@ const PostCard = ({
     liked,
     onLike,
     onDelete,
-    isUserPost
+    isUserPost,
+    postId // Unique post ID for link copying
 }) => {
-    const [mediaLoaded, setMediaLoaded] = useState(true); 
-    const [commentBoxVisible, setCommentBoxVisible] = useState(false); // Toggle comment box
-    const [commentText, setCommentText] = useState(""); // Track comment input
-    const [commentList, setCommentList] = useState(comments); // Local state for comments
+    const [mediaLoaded, setMediaLoaded] = useState(true);
+    const [commentBoxVisible, setCommentBoxVisible] = useState(false);
+    const [commentText, setCommentText] = useState("");
+    const [commentList, setCommentList] = useState(comments);
+    const [menuVisible, setMenuVisible] = useState(false); // State for 3-dot menu
 
     const handleCommentToggle = () => {
         setCommentBoxVisible(!commentBoxVisible);
@@ -28,13 +30,24 @@ const PostCard = ({
     const handleCommentSubmit = (e) => {
         if (e.key === 'Enter' && commentText.trim()) {
             const newComment = { username: fanName, text: commentText };
-            setCommentList([...commentList, newComment]); // Update local comments
-            setCommentText(''); // Clear input
+            setCommentList([...commentList, newComment]);
+            setCommentText('');
         }
     };
 
     const handleMediaError = () => {
         setMediaLoaded(false);
+    };
+
+    const handleCopyLink = () => {
+        const postUrl = `${window.location.origin}/post/${postId}`;
+        navigator.clipboard.writeText(postUrl).then(() => {
+            alert("Post link copied to clipboard!");
+        });
+    };
+
+    const toggleMenu = () => {
+        setMenuVisible(!menuVisible);
     };
 
     return (
@@ -46,34 +59,56 @@ const PostCard = ({
                     <div className="post-user-name">{fanName}</div>
                     <small className="post-timestamp">{new Date(timestamp).toLocaleString()}</small>
                 </div>
+                {/* 3-Dot Menu */}
+                {isUserPost && (
+                    <div className="post-options">
+                        <button className="options-button" onClick={toggleMenu}>
+                            <FaEllipsisV />
+                        </button>
+                        {menuVisible && (
+                            <div className="post-options-menu">
+                                <button onClick={onDelete}>
+                                    <FaTrash /> Delete
+                                </button>
+                            </div>
+                        )}
+                    </div>
+)}
+
             </div>
 
             {/* Body Section */}
             <div className="post-card-body">
                 <p className="post-description">{content}</p>
-                {mediaLoaded && imageSrc && mediaType === 'image' && (
-                    <div className="post-media-wrapper">
+            {mediaLoaded && imageSrc && (
+                <div className="post-media-wrapper">
+                    {mediaType === 'image' ? (
                         <img 
                             src={imageSrc} 
                             alt="Post content" 
                             className="post-media"
                             onError={handleMediaError}
                         />
-                    </div>
-                )}
-                {mediaLoaded && mediaType === 'video' && imageSrc && (
-                    <div className="post-media-wrapper">
+                    ) : mediaType === 'video' ? (
                         <video 
                             controls 
                             src={imageSrc} 
                             className="post-media"
                             onError={handleMediaError}
                         ></video>
-                    </div>
-                )}
+                    ) : null}
+                </div>
+)}
+
+
             </div>
 
-            {/* Footer Section - Like, Comment, Share */}
+            {/* Footer Section - Like, Comment, Copy Link */}
+            <div className="post-stats">
+                <span className="likes-count">{likes} Likes</span>
+                <span className="comments-count">{commentList.length} Comments</span>
+            </div>
+            
             <div className="post-actions">
                 <button className={`like-button ${liked ? 'liked' : ''}`} onClick={onLike}>
                     <FaThumbsUp />
@@ -83,15 +118,13 @@ const PostCard = ({
                     <FaCommentAlt />
                     <span className="button-text"> Comment</span>
                 </button>
-                {isUserPost && (
-                    <button className="delete-button" onClick={onDelete}>
-                        <FaTrash />
-                        <span className="button-text"> Delete</span>
-                    </button>
-                )}
+                <button className="copy-link-button" onClick={handleCopyLink}>
+                    <FaLink />
+                    <span className="button-text"> Copy Link</span>
+                </button>
             </div>
 
-            {/* Comment Box (Only Visible When Comment is Clicked) */}
+            {/* Comment Box */}
             {commentBoxVisible && (
                 <div className="expanded-comments">
                     <ul className="comment-list">
