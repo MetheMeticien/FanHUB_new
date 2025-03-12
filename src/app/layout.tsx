@@ -1,7 +1,14 @@
 import Navbar from '@/Navbar/navbar';
-import './styles/globals.css'; 
+import './globals.css';
+import { Lato } from "next/font/google";
 import "@/app/news/components/Modal/modal.css";
 import Dock from './Dock/dock';
+import Left_bar from '@/Left_Bar/left_bar';
+import Right_bar from './Right_Bar/right_bar';
+
+
+const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
+
 
 export const metadata = {
   title: 'Next.js',
@@ -14,11 +21,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Navbar/>
-        {children}
-        <Dock />
+    <html lang="en" className={lato.className}>
+      <body className='bg-background'>
+        <Navbar />
+        <div className="flex min-h-screen mt-7">
+
+
+          <aside className="hidden xl:block xl:w-1/5 2xl:w-1/6 2xl:mx-6 bg-background">
+            <Left_bar/>
+          </aside>
+
+
+          <main className='flex-1 bg-background'>
+
+            {children}
+            <Dock />
+          </main>
+
+          <aside className="hidden xl:block xl:w-1/5 2xl:w-1/6 2xl:mx-6 bg-background">
+            <Right_bar/>
+          </aside>
+        </div>
       </body>
     </html>
   )
