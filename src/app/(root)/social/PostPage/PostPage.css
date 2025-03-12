@@ -4,7 +4,8 @@
     width: 100%;
     align-content: center;
     gap: 300px;
-}
+    background-color: #313131;
+}   
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -17,7 +18,7 @@ body {
     display: block;
     width: 300px;
     min-width: 300px;
-    position:sticky;
+    position: sticky;
     min-height: 919px;
     color: #ffffff;
     padding: 50px;
