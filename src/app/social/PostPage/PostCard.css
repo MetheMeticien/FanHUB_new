@@ -6,7 +6,7 @@
     border-width: 2px;
     border-color: #202020;
     border-style: solid;
-    border-radius: 10px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -60,6 +60,8 @@
     gap: 15px;
     padding: 10px 0;
     color: #BCBCBC;
+    margin: 10px 20px 20px 20px;
+
 }
 
 .post-card .post-content {
@@ -72,6 +74,7 @@
     display: flex;
     justify-content: center;
     padding: 10px 0;
+   
 }
 
 .post-card img,
@@ -82,53 +85,79 @@
     border-radius: 10px;
 }
 
+
 .post-actions {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-around;
     padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 10px;
 }
 
 .post-actions button {
-    background-color: #202020;
-    padding: 12px 12px;
-    color: rgb(255, 255, 255);
-    opacity: 0.8;
-    outline: none;
+    flex:1;
+    background: none;
     border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.expanded-comments {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 0;
-}
-
-.comment-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
     color: #BCBCBC;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.comment-item {
-    padding: 8px;
-    border-radius: 5px;
-    background-color: #2A2A2A;
+.post-actions button span {
+    margin-left: 5px;
+    padding: 2px 5px;
 }
+
+/* Make the like button blue when liked */
+.like-button.liked {
+    color: #1877F2; /* Facebook-like blue */
+    font-weight: bold;
+}
+
+.like-button.liked:hover {
+    color: #1877F2; /* Facebook-like blue */
+    font-weight: bold;
+}
+
+/* Keep Comment and Share buttons fixed in position */
+.comment-button, .delete-button {
+    min-width: 10px; /* Prevents shifting */
+    text-align: center;
+}
+
+
+.post-actions button:hover {
+    color: white;
+    background-color: rgba(68, 66, 66, 0.39);
+    border-radius: 20px;
+}
+
+.comment-box {
+    display: none; /* Initially hidden */
+    padding: 10px;
+    margin-top: 10px;
+}
+
 
 .comment-input {
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 25px;
     border: 1px solid #444;
     font-size: 14px;
     background-color: #222;
     color: #BCBCBC;
     outline: none;
+}
+
+.comment-list {
+    color: #BCBCBC;
+    margin: 0 20px 0 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    
 }

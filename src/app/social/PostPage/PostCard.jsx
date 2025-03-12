@@ -14,23 +14,27 @@ const PostCard = ({
     liked,
     onLike,
     onDelete,
-    onExpand,
-    expanded,
-    onAddComment,
     isUserPost
 }) => {
-    const [mediaLoaded, setMediaLoaded] = useState(true); // Track media load state
+    const [mediaLoaded, setMediaLoaded] = useState(true); 
+    const [commentBoxVisible, setCommentBoxVisible] = useState(false); // Toggle comment box
+    const [commentText, setCommentText] = useState(""); // Track comment input
+    const [commentList, setCommentList] = useState(comments); // Local state for comments
+
+    const handleCommentToggle = () => {
+        setCommentBoxVisible(!commentBoxVisible);
+    };
 
     const handleCommentSubmit = (e) => {
-        if (e.key === 'Enter' && e.target.value.trim()) {
-            onAddComment(e.target.value.trim());  // Pass only the comment text
-            e.target.value = '';
+        if (e.key === 'Enter' && commentText.trim()) {
+            const newComment = { username: fanName, text: commentText };
+            setCommentList([...commentList, newComment]); // Update local comments
+            setCommentText(''); // Clear input
         }
     };
-    
 
     const handleMediaError = () => {
-        setMediaLoaded(false); // Set to false if media fails to load
+        setMediaLoaded(false);
     };
 
     return (
@@ -53,7 +57,7 @@ const PostCard = ({
                             src={imageSrc} 
                             alt="Post content" 
                             className="post-media"
-                            onError={handleMediaError} // Hide if image fails to load
+                            onError={handleMediaError}
                         />
                     </div>
                 )}
@@ -63,22 +67,19 @@ const PostCard = ({
                             controls 
                             src={imageSrc} 
                             className="post-media"
-                            onError={handleMediaError} // Hide if video fails to load
+                            onError={handleMediaError}
                         ></video>
                     </div>
                 )}
             </div>
 
-            {/* Footer Section */}
+            {/* Footer Section - Like, Comment, Share */}
             <div className="post-actions">
-                <button 
-                    className={`like-button ${liked ? 'liked' : ''}`} 
-                    onClick={onLike}
-                >
+                <button className={`like-button ${liked ? 'liked' : ''}`} onClick={onLike}>
                     <FaThumbsUp />
                     <span className="button-text"> {likes} {liked ? 'Unlike' : 'Like'}</span>
                 </button>
-                <button className="comment-button" onClick={onExpand}>
+                <button className="comment-button" onClick={handleCommentToggle}>
                     <FaCommentAlt />
                     <span className="button-text"> Comment</span>
                 </button>
@@ -90,12 +91,11 @@ const PostCard = ({
                 )}
             </div>
 
-            {/* Expanded Comments Section */}
-            {expanded && (
+            {/* Comment Box (Only Visible When Comment is Clicked) */}
+            {commentBoxVisible && (
                 <div className="expanded-comments">
-                    <h4>Comments</h4>
                     <ul className="comment-list">
-                        {comments.map((comment, idx) => (
+                        {commentList.map((comment, idx) => (
                             <li key={idx} className="comment">
                                 <strong>{comment.username}:</strong> {comment.text}
                             </li>
@@ -104,6 +104,8 @@ const PostCard = ({
                     <input
                         type="text"
                         placeholder="Write a comment..."
+                        value={commentText}
+                        onChange={(e) => setCommentText(e.target.value)}
                         onKeyDown={handleCommentSubmit}
                         className="comment-input"
                     />
