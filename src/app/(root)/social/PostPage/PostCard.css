@@ -1,6 +1,7 @@
 .post-card {
-    min-width: 500px;
-    max-width: 100%; /* Allows expansion */
+    width: 60%; /* Allows expansion */
+    margin: 0 auto;
+
     min-height: 150px;
     flex-shrink: 1;
     border-width: 2px;
@@ -25,6 +26,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    padding: 5px 10px;
 }
 
 .post-card .profile-pic {
@@ -59,13 +61,14 @@
     gap: 8px; /* Reduced gap between elements */
     padding: 5px 0;
     color: #BCBCBC;
-    margin: 5px 20px 10px 20px; /* Adjusted margin */
+     /* Adjusted margin */
     font-size: large;
 }
 
 .post-card .post-content {
     font-size: 13px;
     color: #BCBCBC;
+    
 }
 
 .post-card .post-media-wrapper {
@@ -96,6 +99,10 @@
     border-radius: 10px;
 }
 
+.post-card .post-description{
+    padding: 0px 10px;
+}
+
 .post-actions {
     display: flex;
     justify-content: space-around;
@@ -124,9 +131,6 @@
 }
 
 .post-options {
-    position: absolute;
-    top: 10px;
-    right: 15px;
     cursor: pointer;
     color: #BCBCBC;
     font-size: 18px;
@@ -231,10 +235,68 @@
     outline: none;
     margin-bottom: 10px;
 }
-
+/* Comment Section */
 .comment-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start; /* Align profile pic to the top-left */
+    gap: 10px; /* Space between profile pic and text */
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.05); /* Slight contrast */
+    margin-bottom: 8px;
+    max-width: 95%;
+}
+
+.comment-profile-pic {
+    width: 32px; 
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+.comment-content {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 40px); /* Prevents text from stretching */
+    color: white;
+}
+
+.comment-text {
+    background: rgba(255, 255, 255, 0.1); 
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
     color: #BCBCBC;
-    margin: 0 20px 0 20px;
-    margin-bottom: 5px; /* Reduced spacing */
-    font-size: 13px;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Comment Input Field */
+.comment-input-container {
+    margin-top: 10px;
+    display: flex;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.comment-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
 }
