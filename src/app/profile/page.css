@@ -1,0 +1,88 @@
+/* ProfilePage.css */
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-color);
+  }
+  
+.profile-card {
+    background-color: var(--primary-color);
+    width: 40rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+.profile-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+  }
+  
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+.profile-fields label {
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #f3f3f3;
+  }
+  
+.input-field:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+  }
+  
+.joined-text {
+    font-weight: bold;
+    color: var(--accent-color);
+  }
+  
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+.button-group .button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  
+.save-button {
+    background-color: green;
+    color: white;
+  }
+  
+.cancel-button {
+    background-color: red;
+    color: white;
+  }
+  
+.edit-button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+.edit-button {
+    background-color: blue;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
