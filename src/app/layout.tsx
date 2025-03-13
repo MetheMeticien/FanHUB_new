@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={lato.className}>
       <body className='bg-background'>
-        {children}
+      <ConvexClientProvider>{children}</ConvexClientProvider>
       </body>
     </html>
   )

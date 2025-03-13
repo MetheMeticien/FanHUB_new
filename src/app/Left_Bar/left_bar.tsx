@@ -4,7 +4,7 @@ export default function Left_bar() {
     return (
         <div className="flex flex-col gap-10 h-full ">
             <div className="px-4 py-3 mx-6 bg-primary h-1/3 rounded-2xl">
-                <h2 className="font-lato text-gray-200 mb-8 font-bold text-xl">
+                <h2 className=" font-sans text-gray-200 mb-8 font-bold text-xl">
                     Following
                 </h2>
 
@@ -18,7 +18,7 @@ export default function Left_bar() {
                             className="rounded-full bg-cover"
                         />
                     </div>
-                    <h2 className="font-lato text-sm text-gray-300 px-4">
+                    <h2 className="font-sans text-sm text-gray-300 px-4">
                         Lionel Messi
                     </h2>
                 </div>
