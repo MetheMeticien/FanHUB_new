@@ -11,6 +11,9 @@ module.exports = {
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
+		fontFamily: {
+			sans: ["Lato", "sans-serif"], // Set Lato as default
+		},
   		colors: {
 			primary: "#2A2A2A", // Custom blue color
 			secondary: "#E11D48", // Custom red color

@@ -2,7 +2,7 @@ import "./navbar.css"
 
 export default function Navbar(){
     return(
-        <div className="navbar">
+        <div className="navbar bg-primary">
             <div className="logo">
                 <img src="assets/logo.png" alt="logo" />
             </div>
