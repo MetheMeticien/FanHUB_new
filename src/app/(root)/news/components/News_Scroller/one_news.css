@@ -8,17 +8,19 @@
     font-family: 'Sansation', sans-serif;
 }
 
-.scrolling-news{
+.scrolling-news {
     width: 400px;
+    overflow: hidden; /* Ensure no content overflows the container */
 }
 
 .scrolling-news .container {
     display: flex;
-    
+    background-color: #181818;
     border-width: 2px;
     border-color: #202020;
     border-style: solid;
     border-radius: 10px;
+    width: 100%; /* Ensure container is fully constrained */
 }
 
 .scrolling-news img {
@@ -33,6 +35,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 5px 10px;
+    width: 100%;
+    overflow: hidden; /* Ensure text does not overflow */
 }
 
 .scrolling-news .heading {
@@ -51,7 +55,7 @@
     color: #BCBCBC;
     opacity: .6;
     font-weight: lighter;
-
+    margin: 0;
 }
 
 .scrolling-news h4 {
@@ -59,27 +63,32 @@
     color: #BCBCBC;
     opacity: .6;
     font-weight: lighter;
+    margin: 0;
 }
 
+/* Max one line for headline with ellipsis */
 .scrolling-news h1 {
     font-size: 20px;
     color: #BCBCBC;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
 }
 
+/* Max two lines for description with ellipsis */
 .scrolling-news .description h4 {
-
     display: -webkit-box;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    max-height: calc(1.2em * 3);
+    -webkit-line-clamp: 2; /* Clamp to 2 lines */
+    max-height: calc(1.2em * 2); /* Adjust height to match 2 lines */
     line-height: 1.2em;
-
-
+    margin: 0;
 }
 
-.scrolling-news button{
+.scrolling-news button {
     background-color: #8A8A8A;
     padding: 4px;
     color: black;
@@ -87,4 +96,6 @@
     outline: none;
     border: none;
     border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
 }

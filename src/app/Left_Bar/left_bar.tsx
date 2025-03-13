@@ -1,102 +1,93 @@
-import Image from "next/image";
+"use client";
 
-export default function Left_bar() {
+import { useState } from "react";
+import Image from "next/image";
+import { useSelectedUser } from "@/context/SelectedUserContext"; // Adjust the import path
+
+export default function LeftBar({ following }) {
+    const { selectedUser, setSelectedUser } = useSelectedUser();
+    const [searchQuery, setSearchQuery] = useState("");
+
+    // Filter users based on search query
+    const filteredFollowing = following.filter((user) =>
+        user.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    // Handle user selection/deselection
+    const handleUserClick = (user) => {
+        if (selectedUser?.name === user.name) {
+            setSelectedUser(null); // Deselect if the same user is clicked
+        } else {
+            setSelectedUser(user); // Select the user
+        }
+    };
+
     return (
-        <div className="flex flex-col gap-10 h-full ">
-            <div className="px-4 py-3 mx-6 bg-primary h-1/3 rounded-2xl">
-                <h2 className=" font-sans text-gray-200 mb-8 font-bold text-xl">
+        <div className="flex flex-col gap-6 h-[700px] p-6 bg-gray-600 rounded-2xl shadow-lg">
+            {/* Search Box */}
+            <div className="bg-[#181818] p-4 rounded-xl">
+                <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full p-2 bg-gray-700 text-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+            </div>
+
+            {/* Following Section */}
+            <div className="bg-[#181818] p-4 rounded-xl min-h-96">
+                <h2 className="font-sans text-gray-200 mb-4 font-bold text-lg">
                     Following
                 </h2>
-
-                <div className="flex flex-col gap-2">
-                <div className="flex items-center hover:bg-gray-600 rounded-md px-3">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/assets/messi.jpg"
-                            alt="dp"
-                            fill
-                            className="rounded-full bg-cover"
-                        />
-                    </div>
-                    <h2 className="font-sans text-sm text-gray-300 px-4">
-                        Lionel Messi
-                    </h2>
-                </div>
-                <div className="flex items-center hover:bg-gray-600 rounded-md px-3">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/assets/messi.jpg"
-                            alt="dp"
-                            fill
-                            className="rounded-full bg-cover"
-                        />
-                    </div>
-                    <h2 className="text-sm text-gray-300 px-4">
-                        Lionel Messi
-                    </h2>
-                </div>
-                <div className="flex items-center hover:bg-gray-600 rounded-md px-3">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/assets/messi.jpg"
-                            alt="dp"
-                            fill
-                            className="rounded-full bg-cover"
-                        />
-                    </div>
-                    <h2 className="text-sm text-gray-300 px-4">
-                        Lionel Messi
-                    </h2>
-                </div>
+                <div className="flex flex-col gap-3 max-h-64 overflow-y-auto">
+                    {filteredFollowing.map((user, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handleUserClick(user)}
+                            className={`flex items-center w-full p-2 rounded-lg transition duration-200 ${
+                                selectedUser?.name === user.name
+                                    ? "bg-blue-600 hover:bg-blue-700"
+                                    : "hover:bg-gray-700"
+                            }`}
+                        >
+                            <div className="relative w-10 h-10">
+                                <Image
+                                    src={user.imageUrl}
+                                    alt="profile"
+                                    fill
+                                    className="rounded-full object-cover"
+                                />
+                            </div>
+                            <h2 className="font-sans text-sm text-gray-300 ml-3">
+                                {user.name}
+                            </h2>
+                        </button>
+                    ))}
                 </div>
             </div>
-            <div className="px-4 py-3 mx-6 bg-primary h-1/3 rounded-2xl">
-                <h2 className="font-lato text-gray-200 mb-8 font-bold text-xl">
-                    Suggestions
-                </h2>
 
-                <div className="flex flex-col gap-2">
-                <div className="flex items-center hover:bg-gray-600 rounded-md px-3">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/assets/messi.jpg"
-                            alt="dp"
-                            fill
-                            className="rounded-full bg-cover"
-                        />
-                    </div>
-                    <h2 className="font-lato text-sm text-gray-300 px-4">
-                        Lionel Messi
+            {/* Selected User Display */}
+            {selectedUser && (
+                <div className="bg-gray-800 p-4 rounded-xl">
+                    <h2 className="font-sans text-gray-200 mb-4 font-bold text-lg">
+                        Selected User
                     </h2>
-                </div>
-                <div className="flex items-center hover:bg-gray-600 rounded-md px-3">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/assets/messi.jpg"
-                            alt="dp"
-                            fill
-                            className="rounded-full bg-cover"
-                        />
+                    <div className="flex items-center">
+                        <div className="relative w-12 h-12">
+                            <Image
+                                src={selectedUser.imageUrl}
+                                alt="profile"
+                                fill
+                                className="rounded-full object-cover"
+                            />
+                        </div>
+                        <h2 className="font-sans text-sm text-gray-300 ml-3">
+                            {selectedUser.name}
+                        </h2>
                     </div>
-                    <h2 className="text-sm text-gray-300 px-4">
-                        Lionel Messi
-                    </h2>
                 </div>
-                <div className="flex items-center hover:bg-gray-600 rounded-md px-3">
-                    <div className="relative w-8 h-8">
-                        <Image
-                            src="/assets/messi.jpg"
-                            alt="dp"
-                            fill
-                            className="rounded-full bg-cover"
-                        />
-                    </div>
-                    <h2 className="text-sm text-gray-300 px-4">
-                        Lionel Messi
-                    </h2>
-                </div>
-                </div>
-            </div>
+            )}
         </div>
     );
 }
