@@ -2,7 +2,6 @@
 
 
 import "./social.css"
-import Navbar from "@/Navbar/navbar";
 import PostPage from "../social/PostPage/PostPage";
 
 export default function Social(){

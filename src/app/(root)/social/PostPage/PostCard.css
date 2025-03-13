@@ -1,7 +1,7 @@
 .post-card {
     width: 60%; /* Allows expansion */
     margin: 0 auto;
-
+    min-width: 500px;
     min-height: 150px;
     flex-shrink: 1;
     border-width: 2px;
@@ -151,31 +151,7 @@
     z-index: 10;
 }
 
-/* Show dropdown when active */
-.post-options-menu.active {
-    display: block;
-}
-
-.post-options-menu button {
-    display: block;
-    width: 100%;
-    background: none;
-    border: none;
-    color: #BCBCBC;
-    font-size: 13px;
-    padding: 8px 12px;
-    text-align: left;
-    cursor: pointer;
-}
-
-.post-options-menu button:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
 /* Hide the old delete button from post-actions */
-.delete-button {
-    display: none;
-}
 
 .post-actions button {
     flex: 1;
@@ -247,18 +223,15 @@
     align-items: flex-start; /* Align profile pic to the top-left */
     gap: 10px; /* Space between profile pic and text */
     padding: 8px 12px;
-    border-radius: 8px;
+    border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.05); /* Slight contrast */
     margin-bottom: 8px;
     max-width: 95%;
 }
 
 .comment-profile-pic {
-    width: 32px; 
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0; /* Prevents shrinking */
+    max-height: 40px;
+    max-width: 40px;
 }
 
 .comment-content {
@@ -269,7 +242,6 @@
 }
 
 .comment-text {
-    background: rgba(255, 255, 255, 0.1); 
     padding: 6px 10px;
     border-radius: 8px;
     font-size: 14px;
@@ -291,7 +263,7 @@
     width: 100%;
     padding: 8px;
     border: none;
-    background: transparent;
+    background: dark;
     color: #fff;
     font-size: 14px;
     outline: none;
@@ -299,4 +271,17 @@
 
 .comment-input::placeholder {
     color: rgba(255, 255, 255, 0.5);
+}
+
+.delete-button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #BCBCBC;
+    font-size: 13px; /* Slightly smaller font */
+    cursor: pointer;
+    padding: 8px 15px; /* Reduced padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

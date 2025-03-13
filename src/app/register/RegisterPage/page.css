@@ -1,0 +1,107 @@
+/* General page styling */
+.register-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/src/assets/bg2.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Main container styling */
+.register-container {
+  display: flex;
+  background-color: #000000;
+  padding: 40px;
+  border-radius: 17px;
+  width: 600px; /* Increased width to accommodate both the logo and the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Logo section styling */
+.register-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px; /* Add space between the logo and form */
+}
+
+.register-logo {
+  width: 150px;
+  height: auto;
+}
+
+/* Form section styling */
+.register-right {
+  flex: 1;
+}
+
+.register-title {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Input container styling */
+.register-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns for first name, last name, and passwords */
+  gap: 10px;
+}
+
+.email-input {
+  grid-column: span 2; /* Make the email field span across both columns */
+}
+
+.register-input {
+  width: 100%;
+  padding: 10px;
+  background-color: #555;
+  border: none;
+  border-radius: 17px;
+  color: #fff;
+  outline: none;
+}
+
+/* Gender dropdown styling */
+.register-gender-dropdown {
+  margin-top: 10px;
+  text-align: center;
+  width: 150px;
+}
+
+.register-gender-dropdown select {
+  width: 100%;
+  padding: 10px;
+  background-color: #555;
+  border: none;
+  border-radius: 17px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.register-btn {
+  width: 30%;
+  padding: 10px;
+  background-color: #b71631;
+  border: none;
+  color: white;
+  border-radius: 17px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.register-btn:hover {
+  background-color: #9e1228;
+}
+
+.message{
+  color: #9e1228;
+  padding: 10px;
+
+}

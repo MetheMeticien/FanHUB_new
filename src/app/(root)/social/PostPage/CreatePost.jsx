@@ -14,7 +14,8 @@ const CreatePost = ({ onClose, onCreatePost, followedCelebrities }) => {
     };
 
     const handleSubmit = () => {
-        if (postDescription && selectedCelebrityId && mediaFile) {
+        if (postDescription && selectedCelebrityId) {
+
             onCreatePost({
                 content: postDescription,
                 celebrityId: selectedCelebrityId,

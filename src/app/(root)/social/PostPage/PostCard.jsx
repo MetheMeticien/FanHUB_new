@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaThumbsUp, FaCommentAlt, FaTrash, FaEllipsisV, FaLink } from 'react-icons/fa';
+import { FaThumbsUp, FaCommentAlt, FaTrash, FaLink } from 'react-icons/fa';
 import './PostCard.css';
 
 const PostCard = ({
@@ -22,7 +22,6 @@ const PostCard = ({
     const [commentBoxVisible, setCommentBoxVisible] = useState(false);
     const [commentText, setCommentText] = useState("");
     const [commentList, setCommentList] = useState(comments);
-    const [menuVisible, setMenuVisible] = useState(false); 
 
     const handleCommentToggle = () => {
         setCommentBoxVisible(!commentBoxVisible);
@@ -48,9 +47,10 @@ const PostCard = ({
         });
     };
 
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
+    const handleCommentDelete = (index) => {
+        setCommentList(commentList.filter((_, i) => i !== index));
     };
+    
 
     return (
         <div className="post-card">
@@ -65,16 +65,10 @@ const PostCard = ({
                 </div>
                 {isUserPost && (
                     <div className="post-options">
-                        <button className="options-button" onClick={toggleMenu}>
-                            <FaEllipsisV />
+                        {/* Direct Delete Button */}
+                        <button onClick={onDelete} className="delete-button">
+                            <FaTrash /> Delete
                         </button>
-                        {menuVisible && (
-                            <div className="post-options-menu">
-                                <button onClick={onDelete}>
-                                    <FaTrash /> Delete
-                                </button>
-                            </div>
-                        )}
                     </div>
                 )}
             </div>
@@ -131,7 +125,10 @@ const PostCard = ({
                         {commentList.map((comment, idx) => (
                             <li key={idx} className="comment">
                                 <div className="comment-content">
-                                    <img src='/asse' alt={`${comment.username}`} className="comment-profile-pic" />
+                                    <div className="flex items-center space-x-2">
+                                        <img src="/assets/messi_ballon_dor.jpg" alt={comment.username} className="comment-profile-pic" />
+                                        <span className="font-semibold">{comment.username}</span>
+                                    </div>
                                     <div className="comment-text">
                                         {comment.text}
                                     </div>
