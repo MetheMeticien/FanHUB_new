@@ -151,13 +151,13 @@ const PostPage = () => {
     return (
         <div className="post-page-container">
             {/* Left Pane: Celebrities List with "All" option */}
-            <div className="left-pane">
+            {/* <div className="left-pane">
                 <CelebrityFilter 
                     followedCelebrities={followedCelebrities}
                     selectedCelebrityId={selectedCelebrityId}
                     handleCelebritySelect={handleCelebritySelect}
                 />
-            </div>
+            </div> */}
 
             {/* Middle Pane: Post Section */}
             
@@ -186,7 +186,7 @@ const PostPage = () => {
             
 
             {/* Right Pane: Sort By Options */}
-            <div className="right-pane">
+            {/* <div className="right-pane">
                 <div className="sort-by-title">Sort By:</div>
                 <div className="filter-buttons">
                     <button
@@ -202,7 +202,7 @@ const PostPage = () => {
                         <FaStar /> Popular
                     </button>
                 </div>
-            </div>
+            </div> */}
 
             {/* Floating Create Post Button */}
             <button className="create-post-float-btn" onClick={() => setShowCreatePost(true)}>

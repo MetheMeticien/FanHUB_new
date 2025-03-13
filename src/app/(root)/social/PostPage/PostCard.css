@@ -6,12 +6,12 @@
     border-width: 2px;
     border-color: #202020;
     border-style: solid;
-    border-radius: 10px;
+    border-radius: 30px;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 10px 0 10px;
     background-color: #313131;
-    gap: 15px;
+    gap: 1px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds shadow */
     transition: box-shadow 0.3s ease-in-out;
 }
@@ -20,7 +20,6 @@
 .post-card:hover {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
 }
-
 
 .post-card-header {
     display: flex;
@@ -31,7 +30,7 @@
 .post-card .profile-pic {
     height: 50px;
     width: 50px;
-    border-radius: 10%;
+    border-radius: 30px;
     object-fit: cover;
 }
 
@@ -57,21 +56,36 @@
 .post-card-body {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    padding: 10px 0;
+    gap: 8px; /* Reduced gap between elements */
+    padding: 5px 0;
     color: #BCBCBC;
+    margin: 5px 20px 10px 20px; /* Adjusted margin */
+    font-size: large;
 }
 
 .post-card .post-content {
-    font-size: 16px;
-    color: #BCBCBC;
     font-size: 13px;
+    color: #BCBCBC;
 }
 
 .post-card .post-media-wrapper {
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding: 5px 0; /* Reduced space around media */
+}
+
+.post-stats {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+    color: #BCBCBC;
+    padding: 3px 20px; /* Reduced padding */
+    margin-bottom: 3px; /* Reduced gap below stats */
+}
+
+.post-stats span {
+    margin-left: 15px;
+    opacity: 0.8;
 }
 
 .post-card img,
@@ -84,51 +98,143 @@
 
 .post-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 4px 0; /* Reduced padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3px; /* Reduced space above buttons */
+}
+
+.copy-link-button {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #BCBCBC;
+    font-size: 13px;
+    cursor: pointer;
+    padding: 8px 15px;
+    display: flex;
     align-items: center;
-    padding-top: 10px;
+    justify-content: center;
+}
+
+.copy-link-button:hover {
+    color: white;
+    background-color: rgba(68, 66, 66, 0.39);
+    border-radius: 20px;
+}
+
+.post-options {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    color: #BCBCBC;
+    font-size: 18px;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.post-options-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* Show dropdown when active */
+.post-options-menu.active {
+    display: block;
+}
+
+.post-options-menu button {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: #BCBCBC;
+    font-size: 13px;
+    padding: 8px 12px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.post-options-menu button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hide the old delete button from post-actions */
+.delete-button {
+    display: none;
 }
 
 .post-actions button {
-    background-color: #202020;
-    padding: 12px 12px;
-    color: rgb(255, 255, 255);
-    opacity: 0.8;
-    outline: none;
+    flex: 1;
+    background: none;
     border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.expanded-comments {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 0;
-}
-
-.comment-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-size: 14px;
     color: #BCBCBC;
+    font-size: 13px; /* Slightly smaller font */
+    cursor: pointer;
+    padding: 8px 15px; /* Reduced padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.comment-item {
+.post-actions button span {
+    margin-left: 5px;
+    padding: 2px 5px;
+}
+
+/* Make the like button blue when liked */
+.like-button.liked {
+    color: #1877F2; /* Facebook-like blue */
+    font-weight: bold;
+}
+
+.like-button.liked:hover {
+    color: #1877F2;
+    font-weight: bold;
+}
+
+/* Keep Comment and Share buttons fixed in position */
+.comment-button, .delete-button {
+    min-width: 10px;
+    text-align: center;
+}
+
+.post-actions button:hover {
+    color: white;
+    background-color: rgba(68, 66, 66, 0.39);
+    border-radius: 20px;
+}
+
+.comment-box {
+    display: none;
     padding: 8px;
-    border-radius: 5px;
-    background-color: #2A2A2A;
+    margin-top: 5px;;
 }
 
 .comment-input {
     width: 100%;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 8px;
+    border-radius: 20px; /* Reduced border radius */
     border: 1px solid #444;
-    font-size: 14px;
+    font-size: 13px;
     background-color: #222;
     color: #BCBCBC;
     outline: none;
+    margin-bottom: 10px;
+}
+
+.comment-list {
+    color: #BCBCBC;
+    margin: 0 20px 0 20px;
+    margin-bottom: 5px; /* Reduced spacing */
+    font-size: 13px;
 }
