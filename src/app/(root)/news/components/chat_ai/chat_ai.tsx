@@ -5,7 +5,7 @@ import { Send } from "lucide-react";
 
 export default function AIChatBox() {
   const [messages, setMessages] = useState([
-    { sender: "AI", text: "Hey! Get to know more about your favourite celebrity!!" },
+    { sender: "FanBot", text: "Hey! Get to know more about your favourite celebrity!!" },
   ]);
   const [input, setInput] = useState("");
   const chatRef = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ export default function AIChatBox() {
     <div className="flex flex-col justify-between rounded-2xl h-[700px]"> {/* Fixed height for chat box */}
       {/* Header */}
       <header className="bg-accent text-white p-4 text-center text-lg font-semibold rounded-t-2xl">
-        AI Chat
+        FanBot
       </header>
 
       {/* Chat Container */}

@@ -16,6 +16,7 @@ import GameNews from '~/public/jsons/games.json'
 
 
 import { useSelectedUser } from "@/context/SelectedUserContext";
+import Profile_Card from "./components/Profile/profile_card";
 
 export default function Home() {
 
@@ -67,9 +68,19 @@ export default function Home() {
         <div className="flex">
           <div className="main-section flex-2">
             <div className="following">
-              <div className="hero">
+              {selectedUser?(
+                <div>
+                <Profile_Card/>
+                </div>
+                
+              ):(
+                <div className="hero">
                 <Hero />
               </div>
+              )}
+              
+              
+              
               <div className="others">
                 {newsItems.map((news, index) => (
                   <Other_News
