@@ -1,0 +1,72 @@
+/* Dark theme for login page */
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/src/assets/bg.jpg');
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat;
+}
+
+/* Main container styling */
+.login-container {
+  display: flex;
+  background-color: #000000; /* Dark gray container */
+  padding: 40px;
+  border-radius: 17px;
+  width: 600px; /* Increased width to accommodate both the logo and the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Left section for logo */
+.login-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px; /* Adds space between the logo and form */
+}
+
+.login-logo {
+  width: 150px;
+  height: auto;
+}
+
+/* Right section for form */
+.login-right {
+  flex: 1;
+}
+
+.login-title {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #555; /* Lighter gray for inputs */
+  border: none;
+  border-radius: 17px;
+  color: #fff;
+  outline: none;
+}
+
+.login-btn {
+  width: 30%;
+  padding: 10px;
+  background-color: #b71631; /* Red button */
+  border: none;
+  color: white;
+  border-radius: 17px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.login-btn:hover {
+  background-color: #9e1228; /* Darker red on hover */
+}

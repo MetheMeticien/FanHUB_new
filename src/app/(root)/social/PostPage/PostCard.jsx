@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaThumbsUp, FaCommentAlt, FaTrash, FaEllipsisV, FaLink } from 'react-icons/fa';
+import { FaThumbsUp, FaCommentAlt, FaTrash, FaLink } from 'react-icons/fa';
 import './PostCard.css';
 
 const PostCard = ({
@@ -15,13 +15,13 @@ const PostCard = ({
     onLike,
     onDelete,
     isUserPost,
-    postId // Unique post ID for link copying
+    postId,
+    userPhoto // New: Profile picture of the logged-in user commenting
 }) => {
     const [mediaLoaded, setMediaLoaded] = useState(true);
     const [commentBoxVisible, setCommentBoxVisible] = useState(false);
     const [commentText, setCommentText] = useState("");
     const [commentList, setCommentList] = useState(comments);
-    const [menuVisible, setMenuVisible] = useState(false); // State for 3-dot menu
 
     const handleCommentToggle = () => {
         setCommentBoxVisible(!commentBoxVisible);
@@ -29,7 +29,8 @@ const PostCard = ({
 
     const handleCommentSubmit = (e) => {
         if (e.key === 'Enter' && commentText.trim()) {
-            const newComment = { username: fanName, text: commentText };
+            // Use `userPhoto` instead of `fanPhoto` so the commenter's profile picture is correct
+            const newComment = { username: fanName, text: commentText, photo: userPhoto };
             setCommentList([...commentList, newComment]);
             setCommentText('');
         }
@@ -46,73 +47,66 @@ const PostCard = ({
         });
     };
 
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
+    const handleCommentDelete = (index) => {
+        setCommentList(commentList.filter((_, i) => i !== index));
     };
+    
 
     return (
         <div className="post-card">
             {/* Header Section */}
-            <div className="post-card-header">
-                <img src={fanPhoto} alt={`${fanName}'s profile`} className="profile-pic" />
-                <div className="post-info">
-                    <div className="post-user-name">{fanName}</div>
-                    <small className="post-timestamp">{new Date(timestamp).toLocaleString()}</small>
+            <div className="post-card-header justify-between">
+                <div className="flex gap-5">
+                    <img src={fanPhoto} alt={`${fanName}'s profile`} className="profile-pic" />
+                    <div className="post-info">
+                        <div className="post-user-name">{fanName}</div>
+                        <small className="post-timestamp">{new Date(timestamp).toLocaleString()}</small>
+                    </div>
                 </div>
-                {/* 3-Dot Menu */}
                 {isUserPost && (
                     <div className="post-options">
-                        <button className="options-button" onClick={toggleMenu}>
-                            <FaEllipsisV />
+                        {/* Direct Delete Button */}
+                        <button onClick={onDelete} className="delete-button">
+                            <FaTrash /> Delete
                         </button>
-                        {menuVisible && (
-                            <div className="post-options-menu">
-                                <button onClick={onDelete}>
-                                    <FaTrash /> Delete
-                                </button>
-                            </div>
-                        )}
                     </div>
-)}
-
+                )}
             </div>
 
             {/* Body Section */}
             <div className="post-card-body">
                 <p className="post-description">{content}</p>
-            {mediaLoaded && imageSrc && (
-                <div className="post-media-wrapper">
-                    {mediaType === 'image' ? (
-                        <img 
-                            src={imageSrc} 
-                            alt="Post content" 
-                            className="post-media"
-                            onError={handleMediaError}
-                        />
-                    ) : mediaType === 'video' ? (
-                        <video 
-                            controls 
-                            src={imageSrc} 
-                            className="post-media"
-                            onError={handleMediaError}
-                        ></video>
-                    ) : null}
-                </div>
-)}
-
-
+                {mediaLoaded && imageSrc && (
+                    <div className="post-media-wrapper">
+                        {mediaType === 'image' ? (
+                            <img 
+                                src={imageSrc} 
+                                alt="Post content" 
+                                className="post-media"
+                                onError={handleMediaError}
+                            />
+                        ) : mediaType === 'video' ? (
+                            <video 
+                                controls 
+                                src={imageSrc} 
+                                className="post-media"
+                                onError={handleMediaError}
+                            ></video>
+                        ) : null}
+                    </div>
+                )}
             </div>
 
-            {/* Footer Section - Like, Comment, Copy Link */}
+            {/* Footer Section */}
             <div className="post-stats">
                 <span className="likes-count">{likes} Likes</span>
                 <span className="comments-count">{commentList.length} Comments</span>
             </div>
-            
+
             <div className="post-actions">
                 <button className={`like-button ${liked ? 'liked' : ''}`} onClick={onLike}>
                     <FaThumbsUp />
-                    <span className="button-text"> {likes} {liked ? 'Unlike' : 'Like'}</span>
+                    <span className="button-text"> {liked ? 'Unlike' : 'Like'}</span>
                 </button>
                 <button className="comment-button" onClick={handleCommentToggle}>
                     <FaCommentAlt />
@@ -130,7 +124,15 @@ const PostCard = ({
                     <ul className="comment-list">
                         {commentList.map((comment, idx) => (
                             <li key={idx} className="comment">
-                                <strong>{comment.username}:</strong> {comment.text}
+                                <div className="comment-content">
+                                    <div className="flex items-center space-x-2">
+                                        <img src="/assets/messi_ballon_dor.jpg" alt={comment.username} className="comment-profile-pic" />
+                                        <span className="font-semibold">{comment.username}</span>
+                                    </div>
+                                    <div className="comment-text">
+                                        {comment.text}
+                                    </div>
+                                </div>
                             </li>
                         ))}
                     </ul>

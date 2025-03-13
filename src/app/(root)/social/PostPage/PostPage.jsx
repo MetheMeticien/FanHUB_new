@@ -48,6 +48,7 @@ const initialPosts = [
     }
 ];
 
+
 const followedCelebrities = [
     { name: 'Elon Musk', id: 'elon' }, 
     { name: 'Beyoncé', id: 'beyonce' }, 
@@ -77,7 +78,8 @@ const PostPage = () => {
                 liked: false,
                 comments: [],
                 mediaType: newPost.mediaType,
-                mediaUrl: URL.createObjectURL(newPost.mediaFile),  // Convert media file to URL for display
+                mediaUrl: newPost.mediaFile ? URL.createObjectURL(newPost.mediaFile) : null,
+  // Convert media file to URL for display
             };
             setPosts([postWithMedia, ...posts]);
             setShowCreatePost(false);  // Close the CreatePost form after posting
