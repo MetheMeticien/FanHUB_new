@@ -28,7 +28,7 @@ export default function Layout({ children }: LayoutProps) {
                         <LeftBar following={following} />
                     </aside>
 
-                    <main className="flex-1 bg-background">
+                    <main className="flex-1 bg-background rounded-xl">
                         {children}
                         <Dock />
                     </main>

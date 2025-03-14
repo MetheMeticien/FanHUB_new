@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="news">
+      <div className="news ">
         <div className="flex">
           <div className="main-section flex-2">
             <div className="following">

@@ -34,7 +34,7 @@ export default function AIChatBox() {
       setInput("");
 
       const aiResponse = await fetchAIResponse(input);
-      const aiMessage = { sender: "AI", text: aiResponse };
+      const aiMessage = { sender: "FanBot", text: aiResponse };
       setMessages((prev) => [...prev, aiMessage]);
     }
   };
