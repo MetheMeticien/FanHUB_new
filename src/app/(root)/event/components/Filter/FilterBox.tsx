@@ -1,19 +1,12 @@
 "use client";
 
-import { useState } from "react";
-
-export default function FilterBox() {
-  // State for filter values
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [time, setTime] = useState("");
-  const [location, setLocation] = useState("");
+export default function FilterBox({ filters, onFilterChange, onApplyFilters }) {
+  const { startDate, endDate, time, location } = filters;
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Filters Applied:", { startDate, endDate, time, location });
-    // Add your filter logic here
+    onApplyFilters();
   };
 
   return (
@@ -28,7 +21,7 @@ export default function FilterBox() {
           <input
             type="date"
             value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
+            onChange={(e) => onFilterChange("startDate", e.target.value)}
             className="w-full p-2 bg-[#2d2d2d] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"
           />
         </div>
@@ -41,7 +34,7 @@ export default function FilterBox() {
           <input
             type="date"
             value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
+            onChange={(e) => onFilterChange("endDate", e.target.value)}
             className="w-full p-2 bg-[#2d2d2d] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"
           />
         </div>
@@ -54,7 +47,7 @@ export default function FilterBox() {
           <input
             type="time"
             value={time}
-            onChange={(e) => setTime(e.target.value)}
+            onChange={(e) => onFilterChange("time", e.target.value)}
             className="w-full p-2 bg-[#2d2d2d] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"
           />
         </div>
@@ -68,7 +61,7 @@ export default function FilterBox() {
             type="text"
             placeholder="Enter location"
             value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => onFilterChange("location", e.target.value)}
             className="w-full p-2 bg-[#2d2d2d] border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"
           />
         </div>

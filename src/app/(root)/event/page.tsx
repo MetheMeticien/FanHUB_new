@@ -1,12 +1,46 @@
 "use client";
 
+import { useState } from "react";
 import EventCard from "./components/EventCard";
 import FilterBox from "./components/Filter/FilterBox";
 import Events from "~/public/jsons/events/events.json";
 
 export default function EventsPage() {
-  // Use the events data from the JSON file
-  const events = Events;
+  const [filters, setFilters] = useState({
+    startDate: "",
+    endDate: "",
+    time: "",
+    location: "",
+  });
+
+  const handleFilterChange = (filterName, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterName]: value,
+    }));
+  };
+
+  const applyFilters = () => {
+    // Filter logic will be applied here
+    console.log("Filters Applied:", filters);
+  };
+
+  // Filter events based on the filter criteria
+  const filteredEvents = Events.filter((event) => {
+    const eventDate = new Date(event.start_time);
+    const startDate = filters.startDate ? new Date(filters.startDate) : null;
+    const endDate = filters.endDate ? new Date(filters.endDate) : null;
+  
+    // Safely extract time from event.start_time
+    const eventTime = event.start_time ? event.start_time.split("T")[1]?.substring(0, 5) : null;
+  
+    return (
+      (!startDate || eventDate >= startDate) &&
+      (!endDate || eventDate <= endDate) &&
+      (!filters.time || eventTime === filters.time) &&
+      (!filters.location || event.area.toLowerCase().includes(filters.location.toLowerCase()))
+    );
+  });
 
   return (
     <div className="min-h-screen bg-[#121212] p-8">
@@ -23,7 +57,7 @@ export default function EventsPage() {
 
           {/* Scrollable Events Container */}
           <div className="flex flex-col gap-6 h-[calc(100vh-200px)] overflow-y-auto">
-            {events.map((event) => (
+            {filteredEvents.map((event) => (
               <EventCard
                 key={event.id} // Ensure each event has a unique ID
                 event_pic={event.event_pic}
@@ -40,7 +74,11 @@ export default function EventsPage() {
         {/* Right Section: FilterBox */}
         <div className="w-96 hidden lg:block">
           <div className="pt-24">
-            <FilterBox />
+            <FilterBox
+              filters={filters}
+              onFilterChange={handleFilterChange}
+              onApplyFilters={applyFilters}
+            />
           </div>
         </div>
       </div>
@@ -51,7 +89,11 @@ export default function EventsPage() {
         <p className="text-sm text-gray-400 mb-6">
           Narrow down your search by date, time, and location.
         </p>
-        <FilterBox />
+        <FilterBox
+          filters={filters}
+          onFilterChange={handleFilterChange}
+          onApplyFilters={applyFilters}
+        />
       </div>
     </div>
   );
