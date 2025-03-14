@@ -1,0 +1,112 @@
+[
+    {   
+        "id":"2",
+        "title": "Los Angeles Summer Jam",
+        "area": "Hollywood Bowl, Los Angeles, California",
+        "start_time": "2025-07-05 16:00",
+        "end_time": "2025-07-05 23:00",
+        "event_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR0BH40J2YZBX83_syPGPnsrZq-3VxqS0YZA&s",
+        "event_link": "",
+        "interested_people_count": 18000
+    },
+    {
+        "id":"3",
+        "title": "Vintage Car Enthusiast Meetup",
+        "area": "Woodward Dream Cruise, Detroit, Michigan",
+        "start_time": "2025-08-17 10:00",
+        "end_time": "2025-08-17 15:00",
+        "event_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0eOCnLdGLIQVl1RZpySnNvkP9f1OSkcE7vg&s",
+        "event_link": "",
+        "interested_people_count": 8000
+    },
+    {
+        "id":"4",
+        "title": "Euro Motorfest 2025",
+        "area": "Nürburgring, Nürburg, Germany",
+        "start_time": "2025-09-05 08:00",
+        "end_time": "2025-09-07 18:00",
+        "event_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfp_3z7Sn3Bt6BOLeeM7UwxdpjxtptbJxAnw&s",
+        "event_link": "",
+        "interested_people_count": 12000
+    },
+    {
+        "id":"5",
+        "title": "Autumn Food & Culture Fair",
+        "area": "Union Square, San Francisco, California",
+        "start_time": "2025-10-20 11:00",
+        "end_time": "2025-10-22 21:00",
+        "event_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzH-HmiYM5YjEGIrgbUbDfzH3trDtJs_pISQ&s",
+        "event_link": "",
+        "interested_people_count": 15000
+    },
+    {
+        "id":"6",
+        "title": "Anime Central 2025",
+        "area": "Donald E. Stephens Convention Center, Rosemont, Illinois",
+        "start_time": "2025-05-16 09:00",
+        "end_time": "2025-05-18 18:00",
+        "event_pic": "https://events.augustaarts.com/wp-content/uploads/2024/10/anime-fest.jpg",
+        "event_link": "",
+        "interested_people_count": 22000
+    },
+    {
+        "id":"7",
+        "title": "Electric Carnival 2025",
+        "area": "Las Vegas Motor Speedway, Las Vegas, Nevada",
+        "start_time": "2025-06-20 17:00",
+        "end_time": "2025-06-22 02:00",
+        "event_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCT76Zb0CIepOlPfRGn1DIrlfsTK5Q5EstLg&s",
+        "event_link": "",
+        "interested_people_count": 60000
+    },
+    {
+        "id":"8",
+        "title": "Chicago Car Culture Meetup",
+        "area": "Grant Park, Chicago, Illinois",
+        "start_time": "2025-07-25 10:00",
+        "end_time": "2025-07-25 17:00",
+        "event_pic": "https://drivermod.ca/oimg/img149640768657959315e83e58c620c4302b689.jpg",
+        "event_link": "",
+        "interested_people_count": 7000
+    },
+    {
+        "id":"9",
+        "title": "Anime Fiesta 2025",
+        "area": "Henry B. González Convention Center, San Antonio, Texas",
+        "start_time": "2025-11-02 10:00",
+        "end_time": "2025-11-04 17:00",
+        "event_pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO4btztDQWY5gA4diMRjBH35NZA9CcRkQjNw&s",
+        "event_link": "",
+        "interested_people_count": 13000
+    },
+    {
+        "id":"10",
+        "title": "New York Jazz Fest",
+        "area": "Central Park, New York City, New York",
+        "start_time": "2025-08-15 14:00",
+        "end_time": "2025-08-15 22:00",
+        "event_pic": "https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/clients/neworleans/Main_JazzFest_e533ba7f-b0e6-4da7-bad8-3e229d7b8c73.jpg",
+        "event_link": "",
+        "interested_people_count": 17000
+    },
+    {
+        "id":"11",
+        "title": "Classic Car Showdown",
+        "area": "Goodwood Circuit, West Sussex, UK",
+        "start_time": "2025-07-18 08:00",
+        "end_time": "2025-07-19 18:00",
+        "event_pic": "https://www.cjonline.com/gcdn/authoring/authoring-images/2024/07/30/NTCJ/74601942007-20240727-785-showdown-en-9.jpg?width=700&height=467&fit=crop&format=pjpg&auto=webp",
+        "event_link": "",
+        "interested_people_count": 14000
+    },
+    {
+        "id":"12",
+        "title": "Sunset Beach Music Festival",
+        "area": "Sunset Beach Park, Vancouver, Canada",
+        "start_time": "2025-07-30 15:00",
+        "end_time": "2025-07-30 23:00",
+        "event_pic": "https://tds-images.thedailystar.net/sites/default/files/xefer-rahman2.jpg",
+        "event_link": "",
+        "interested_people_count": 19000
+    }
+]

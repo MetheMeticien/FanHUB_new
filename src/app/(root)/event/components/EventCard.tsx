@@ -1,42 +1,62 @@
 import Image from "next/image";
 
-export default function EventCard() {
+export default function EventCard({ event_pic, title, area, start_time, end_time, interested_people_count }) {
+  // Format the date and time
+  const startDate = new Date(start_time).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  const startTime = new Date(start_time).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const endTime = new Date(end_time).toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
-    <div className="flex flex-col min-w-80 bg-[#202020] rounded-lg flex-grow">
-      <div className="min-h-40 sm:min-h-48 md:min-h-56 lg:min-h-64 relative rounded-lg">
+    <div className="flex w-full h-40 bg-[#202020] rounded-lg hover:shadow-xl hover:scale-105 transition-transform duration-300">
+      {/* Image Section */}
+      <div className="w-1/3 h-full relative rounded-l-lg overflow-hidden">
         <Image
-          src="/assets/ronaldo.jpg"
-          alt="Image"
+          src={event_pic}
+          alt="Event Image"
           fill
-          className="rounded-t-lg object-cover"
+          className="object-cover"
+          unoptimized
+
         />
       </div>
-      <div className="flex flex-col p-4 gap-4">
-        <div className="flex justify-between gap-1">
-          <div className="flex flex-col">
-            <h2 className="text-base sm:text-lg font-bold text-gray-400">
-              RunRise Nation 15k 2025
-            </h2>
-            <h5 className="text-xs sm:text-sm opacity-65 font-medium text-gray-400">
-              Mohammadpur, Dhaka
-            </h5>
-          </div>
-          <div className="flex flex-col justify-center gap-1 w-32 text-right">
-            <h2 className="text-xs sm:text-sm font-medium text-gray-400">
-              8 Oct, 2025
-            </h2>
-            <h5 className="text-xs sm:text-sm font-medium text-gray-400">
-              11:00 pm
-            </h5>
-          </div>
+
+      {/* Content Section */}
+      <div className="w-2/3 p-4 flex flex-col justify-between">
+        {/* Top Section: Title and Location */}
+        <div>
+          <h2 className="text-lg font-bold text-gray-200">{title}</h2>
+          <h5 className="text-sm opacity-80 font-medium text-gray-400">
+            {area}
+          </h5>
         </div>
-        <div className="flex justify-between">
-          <button className="text-gray-800 rounded-md font-semibold px-2 py-1 sm:px-4 sm:py-2 bg-emerald-600 hover:bg-emerald-500">
-            Interested
-          </button>
-          <button className="text-gray-800 rounded-md font-semibold px-2 py-1 sm:px-4 sm:py-2 bg-emerald-600 hover:bg-emerald-500">
-            Buy Ticket
-          </button>
+
+        {/* Bottom Section: Date, Time, and Buttons */}
+        <div className="flex justify-between items-end">
+          <div className="flex flex-col">
+            <h2 className="text-sm font-medium text-gray-400">{startDate}</h2>
+            <h5 className="text-sm font-medium text-gray-400">
+              {startTime} - {endTime}
+            </h5>
+            <p className="text-xs text-gray-400 mt-1">
+              {interested_people_count.toLocaleString()} interested
+            </p>
+          </div>
+          <div className="flex gap-2">
+            <button className="text-gray-800 rounded-md font-semibold px-3 py-1 bg-emerald-600 hover:bg-emerald-500 transition-colors mr-2">
+              Interested
+            </button>
+            
+          </div>
         </div>
       </div>
     </div>
