@@ -52,12 +52,12 @@ export default function Profile_Card() {
                     </p>
                     <button
                         onClick={toggleFollow}
-                        className={`px-6 py-3 rounded-full text-base font-semibold transition-colors ${isFollowing
+                        className={`px-6 py-3 rounded-full text-base font-semibold transition-colors ${!isFollowing
                                 ? "bg-gray-200 text-gray-800 hover:bg-gray-300"
                                 : "bg-blue-600 text-white hover:bg-blue-700"
                             }`}
                     >
-                        {isFollowing ? "Unfollow" : "Follow"}
+                        {isFollowing ? "Follow" : "Unfollow"}
                     </button>
                 </div>
             </div>
